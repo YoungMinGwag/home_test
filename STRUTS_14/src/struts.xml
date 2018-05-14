@@ -38,6 +38,16 @@
 			<interceptor-ref name="params"></interceptor-ref>
 			<result>/unit19/result.jsp</result>
 		</action>
+		
+		<action name="member" class="chain.action.MemberAction">
+			<interceptor-ref name="prepare"></interceptor-ref>
+			<interceptor-ref name="modelDriven"></interceptor-ref>
+			<interceptor-ref name="params"></interceptor-ref>
+			<result name="success" type="chain">
+				<param name="actionName">login</param>
+			</result>
+			<result name="login">/unit25/login.jsp</result>
+		</action>
 	</package>
 	
 	<package name="struts2_14" extends="struts-default">
